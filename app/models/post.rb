@@ -5,5 +5,6 @@ class Post < ActiveRecord::Base
   validates :category, inclusion: { in: %w(Fiction Non-Fiction),
     message: "%{value} should be Fiction or Non-Fiction" }
   validates :title, inclusion: { in: %w( "Won't Believe" "Secret" "Top [number]" "Guess"),
-      message: "%{value} should be Fiction or Non-Fiction" }
+      message: "%{value} should be clickbait-y" }
 end
+
