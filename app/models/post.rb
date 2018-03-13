@@ -7,4 +7,3 @@ class Post < ActiveRecord::Base
   validates :title, inclusion: { in: %w( "Won't Believe" "Secret" "Top [number]" "Guess"),
       message: "%{value} should be clickbait-y" }
 end
-
