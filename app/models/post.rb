@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  validates :title, presence: true, inclusion: { in: %w( /\bWon't Believe\b/ /\bTrue Facts\b/ /\bSecret\b/ /\bTop [number]\b/ /\bGuess\b/),
+  validates :title, presence: true
      message: "%{value} should be clickbait-y" }
   validates :content, length: {minimum: 250}
   validates :summary, length: {maximum: 250}
