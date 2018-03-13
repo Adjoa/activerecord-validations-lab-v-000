@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   validate :clickbait_title?
 
   CLICKBAIT_TITLES = [/Won't Believe/i, /Secret/i, /Top [0-9]*/i, /Guess/i]
-  
+
   def clickbait_title?
     if CLICKBAIT_TITLES.any? { |pat| pat.match title }
       true
