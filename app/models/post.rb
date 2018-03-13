@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
   validates :title, presence: true
-     message: "%{value} should be clickbait-y" }
   validates :content, length: {minimum: 250}
   validates :summary, length: {maximum: 250}
   validates :category, inclusion: { in: %w(Fiction Non-Fiction),
@@ -13,7 +12,7 @@ class Post < ActiveRecord::Base
     if CLICKBAIT_TITLES.any? { |pat| pat.match title }
       true
     else
-      errors.add(:title, "must include: Won't Believe, Secret, Top [number], or Guess")
+      errors.add(:title, "must include Won't Believe, Secret, Top [number], or Guess")
     end
   end
 
