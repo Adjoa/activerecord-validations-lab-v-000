@@ -7,10 +7,14 @@ class Post < ActiveRecord::Base
     message: "%{value} should be Fiction or Non-Fiction" }
   validate :clickbait_title?
 
+  CLICKBAIT_TITLES = [/Won't Believe/i, /Secret/i, /Top [0-9]*/i, /Guess/i]
+  
   def clickbait_title?
-    if expiration_date.present? && expiration_date < Date.today
-      errors.add(:expiration_date, "can't be in the past")
+    if CLICKBAIT_TITLES.any? { |pat| pat.match title }
+      true
+    else
+      errors.add(:title, "must include: Won't Believe, Secret, Top [number], or Guess")
     end
   end
-  
+
 end
